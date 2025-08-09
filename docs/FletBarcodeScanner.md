@@ -1,0 +1,1 @@
+:::src.flet_barcode_scanner.flet_barcode_scanner

@@ -1,0 +1,7 @@
+site_name: FletBarcodeScanner
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings

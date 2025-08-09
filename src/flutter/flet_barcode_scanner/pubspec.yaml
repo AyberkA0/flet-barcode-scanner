@@ -1,0 +1,21 @@
+name: flet_barcode_scanner
+description: Flet FletBarcodeScanner control
+repository: https://github.com/MyGithubAccount/flet-barcode-scanner/src/flutter/flet_barcode_scanner
+version: 0.1.0
+homepage: https://github.com/MyGithubAccount/flet-barcode-scanner
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flet: 0.28.3
+  flutter:
+    sdk: flutter
+  mobile_scanner: ^7.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  
