@@ -37,8 +37,6 @@ def main(page: ft.Page):
         controls=[
             ft.ElevatedButton("Start", on_click=start_scan),
             ft.OutlinedButton("Stop", on_click=stop_scan),
-            ft.FilledButton("Toggle torch", on_click=lambda _: scanner.toggle_torch()),
-            ft.TextButton("Switch camera", on_click=lambda _: scanner.switch_camera()),
         ],
         alignment=ft.MainAxisAlignment.CENTER,
         wrap=True,
