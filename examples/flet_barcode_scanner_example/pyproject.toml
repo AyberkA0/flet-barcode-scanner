@@ -8,8 +8,8 @@ authors = [
     { name = "Flet developer", email = "you@example.com" }
 ]
 dependencies = [
-  "flet-barcode-scanner",
   "flet>=0.28.3",
+  "flet-barcode-scanner @ git+https://github.com/AyberkA0/flet-barcode-scanner",
 ]
 
 [tool.flet]
