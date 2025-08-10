@@ -45,7 +45,7 @@ dependencies = [
 
 ```python
 import flet as ft
-from flet_barcode_scanner import BarcodeScanner, ScannerFacing
+from flet_barcode_scanner import BarcodeScanner, CameraFacing
 
 def main(page: ft.Page):
     page.title = "Flet Barcode Scanner"
@@ -61,20 +61,16 @@ def main(page: ft.Page):
 
     scanner = BarcodeScanner(
         on_detect=on_detect,
-        facing=ScannerFacing.BACK,
+        facing=CameraFacing.BACK,
         torch=False,
         width=360,
         height=360,
     )
 
-    toggle_torch = ft.ElevatedButton("Toggle torch", on_click=lambda _: scanner.toggle_torch())
-    switch_cam = ft.OutlinedButton("Switch camera", on_click=lambda _: scanner.switch_camera())
-
     page.add(
         ft.Column(
             controls=[
                 ft.Container(content=scanner, width=360, height=360, bgcolor=ft.Colors.BLACK, border_radius=12),
-                ft.Row([toggle_torch, switch_cam], alignment=ft.MainAxisAlignment.CENTER),
                 ft.Text("Last result:"),
                 result,
             ],
