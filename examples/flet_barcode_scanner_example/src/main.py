@@ -1,60 +1,59 @@
+import json
 import flet as ft
-from flet_barcode_scanner import BarcodeScanner, CameraFacing
+from flet_barcode_scanner import (
+    BarcodeScanner,
+    CameraFacing,
+    DetectionMode,
+    BarcodeFormat,
+)
 
 def main(page: ft.Page):
     page.title = "Flet Barcode Scanner"
-    page.padding = 20
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    status = ft.Text("Ready")
-    last = ft.Text("", selectable=True)
+    result = ft.Text("No code scanned yet.", selectable=True)
+    status = ft.Text("Idle")
 
-    def on_detect(e: ft.ControlEvent):
-        last.value = e.data
+    def on_result(e: ft.ControlEvent):
+        try:
+            data = json.loads(e.data or "{}")
+            raw = data.get("rawValue", "")
+            fmt = data.get("format", "")
+            result.value = f"Value: {raw}\nFormat: {fmt}"
+        except Exception:
+            result.value = f"Raw: {e.data}"
         status.value = "Detected"
         page.update()
 
+    def on_closed(e: ft.ControlEvent):
+        # e.data -> "detected" or "canceled"
+        status.value = f"Closed: {e.data}"
+        page.update()
+
     scanner = BarcodeScanner(
-        on_detect=on_detect,
-        facing=CameraFacing.BACK,
+        camera_facing=CameraFacing.BACK,
+        detection_mode=DetectionMode.ONCE,
+        formats=[BarcodeFormat.QR, BarcodeFormat.CODE128, BarcodeFormat.PDF417],
         torch=False,
-        width=360,
-        height=360,
+        auto_close=True,
+        overlay_title="Show the code to the camera",
+        on_result=on_result,
+        on_closed=on_closed,
     )
 
     def start_scan(_):
-        status.value = "Scanning"
+        status.value = "Scanning..."
         page.update()
         scanner.start()
 
-    def stop_scan(_):
-        status.value = "Stopped"
-        page.update()
-        scanner.stop()
-
-    actions = ft.Row(
-        controls=[
-            ft.ElevatedButton("Start", on_click=start_scan),
-            ft.OutlinedButton("Stop", on_click=stop_scan),
-        ],
-        alignment=ft.MainAxisAlignment.CENTER,
-        wrap=True,
-    )
-
+    page.overlay.append(scanner)
     page.add(
         ft.Column(
-            controls=[
-                ft.Container(content=scanner, width=360, height=360, bgcolor=ft.Colors.BLACK, border_radius=12),
-                actions,
-                ft.Text("Last result:"),
-                last,
+            [
+                ft.ElevatedButton("Open Scanner", on_click=start_scan),
+                result,
                 status,
-            ],
-            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            spacing=16,
+            ]
         )
     )
 
-if __name__ == "__main__":
-    ft.app(target=main)
+ft.app(target=main)
