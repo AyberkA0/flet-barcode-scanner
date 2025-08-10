@@ -9,7 +9,7 @@ A lightweight barcode/QR scanner extension for [Flet](https://flet.dev) built on
 - Realtime barcode & QR detection
 - Back/Front camera selection
 - Torch (flash) control
-- Event callback on detection (`on_detect`)
+- Event callback on detection (`on_detect`, `on_closed`)
 - Simple, Flet-friendly API
 
 ---
