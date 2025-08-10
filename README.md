@@ -2,6 +2,8 @@
 
 A lightweight barcode/QR scanner extension for [Flet](https://flet.dev) built on top of Flutter's `mobile_scanner`.
 
+![Demo](https://github.com/AyberkA0/flet-barcode-scanner/raw/main/examples/demo.gif)
+
 ---
 
 ## ✨ Features
