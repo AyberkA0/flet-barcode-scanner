@@ -46,7 +46,7 @@ class FletBarcodeScanner(Control):
         torch: Optional[bool] = False,
         auto_close: Optional[bool] = True,
         overlay_title: Optional[str] = None,
-        on_result: OptionalControlEventCallable = None
+        on_result: OptionalControlEventCallable = None,
         on_closed: OptionalControlEventCallable = None
     ):
         Control.__init__(self, tooltip=tooltip, visible=visible, data=data)
