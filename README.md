@@ -1,3 +1,10 @@
+## Notes
+
+* Built for Flet `0.28.3`
+* Works on MacOS, Linux, and Mobile (camera access may vary by platform/permissions)
+
+---
+
 # Flet Barcode Scanner Extension
 
 A lightweight barcode/QR scanner extension for [Flet](https://flet.dev) built on top of Flutter's `mobile_scanner`.
@@ -147,10 +154,3 @@ pip install -e .
 cd examples/flet_barcode_scanner_example
 flet run
 ```
-
----
-
-## Notes
-
-* Built for Flet `0.28.3`
-* Works on MacOS, Linux, and Mobile (camera access may vary by platform/permissions)
