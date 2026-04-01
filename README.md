@@ -1,7 +1,6 @@
-## Notes
-
-* Built for Flet `0.28.3`
-* Works on MacOS, Linux, and Mobile (camera access may vary by platform/permissions)
+> [!INFO]
+> Built for Flet `0.28.3`
+> Works on MacOS, Linux, and Mobile (camera access may vary by platform/permissions)
 
 ---
 
