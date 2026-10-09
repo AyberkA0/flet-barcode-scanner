@@ -1,14 +1,14 @@
 [project]
 name = "flet-barcode-scanner"
-version = "0.1.0"
-description = "FletBarcodeScanner control for Flet"
+version = "0.2.0"
+description = "BarcodeScanner control for Flet — full-screen QR/barcode scanning."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [
-    { name = "Flet contributors", email = "you@example.com" }
+    { name = "AyberkA0", email = "ayberkatalaybusiness@gmail.com" }
 ]
 dependencies = [
-    "flet==0.28.3",
+    "flet>=0.86.5",
 ]
 
 [project.urls]
@@ -18,24 +18,7 @@ Repository = "https://github.com/AyberkA0/flet-barcode-scanner"
 Issues = "https://github.com/AyberkA0/flet-barcode-scanner/issues"
 
 [tool.setuptools.package-data]
-"flutter.flet_barcode_scanner" = ["**/*"]
-
-[tool.uv]
-dev-dependencies = [
-    "flet[all]==0.28.3",
-    "mkdocs", 
-    "mkdocs-material",
-    "mkdocstrings[python]"
-]
-
-[tool.poetry.group.dev.dependencies]
-flet = {extras = ["all"], version = "0.28.3"}
-mkdocs = "*"
-mkdocstrings = { extras = ["python"], version = "*" }
-mkdocs-material = "*"
-
-[tool.setuptools]
-license-files = []
+"flutter.flet_barcode_scanner" = ["pubspec.yaml", "lib/**"]
 
 [build-system]
 requires = ["setuptools"]
